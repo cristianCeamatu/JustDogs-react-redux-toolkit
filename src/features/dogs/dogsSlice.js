@@ -1,5 +1,6 @@
+/* eslint-disable  no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-/* eslint-disable */
+
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
