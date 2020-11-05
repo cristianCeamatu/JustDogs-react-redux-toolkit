@@ -1,0 +1,35 @@
+.nav {
+  background-color: #3F729B;
+  color: #fff;
+  padding: 5px;
+}
+
+.navItems {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 18px;
+}
+
+.navLink {
+  margin: 0 10px;
+  border-bottom: 1px solid #ff9e80;
+}
+
+.navBrand {
+  display: flex;
+  align-items: center;
+  font-size: 38px;
+
+}
+
+@media(min-width: 568px) {
+  .navBrand {
+    padding: 0 15px;
+  }
+
+  .navLink {
+    margin: 0 20px;
+  }
+}

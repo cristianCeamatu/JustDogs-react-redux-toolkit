@@ -1,43 +1,53 @@
 /* eslint-disable  no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+axios.defaults.headers.common['x-apy-key'] = '4aba53a3-51c3-4af7-9941-8321ab92ac07';
+export const getDogs = createAsyncThunk('dogs/getDogs', async () => {
+  const response = await axios.get(
+    'https://api.thedogapi.com/v1/images/search?limit=100&order=DESC&page=1&size=med',
+  );
+  const dogs = response.data.filter(dog => dog.breeds.length !== 0 && dog.breeds[0].breed_group);
+
+  return dogs;
+});
+
+// export const getDog = createAsyncThunk('dogs/getDog', async id => {
+//   const response = await axios.get(`https://api.thedogapi.com/v1/images/${id}`);
+//   return response.data;
+// });
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
-    value: 0,
+    data: [],
+    lifeSpanFilter: '',
+    status: 'idle',
+    error: '',
   },
   reducers: {
-    increment: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    changeLifeSpanFilter: (state, action) => {
+      state.lifeSpanFilter = action.payload;
     },
-    decrement: state => {
-      state.value -= 1;
+    // setDogsFromStorage: (state, action) => {
+    //   state.dogs = action.payload;
+    // },
+  },
+  extraReducers: {
+    [getDogs.pending]: state => {
+      state.status = 'loadingDogs';
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    [getDogs.fulfilled]: (state, action) => {
+      state.data = action.payload;
+      state.status = 'idle';
+    },
+    [getDogs.rejected]: (state, action) => {
+      state.error = action.error.message;
+      state.status = 'failedLoadingDogs';
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
-
-// The function below is called a thunk and allows us to perform async logic. It
-// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
-// will call the thunk with the `dispatch` function as the first argument. Async
-// code can then be executed and other actions can be dispatched
-export const incrementAsync = amount => dispatch => {
-  setTimeout(() => {
-    dispatch(incrementByAmount(amount));
-  }, 1000);
-};
-
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state) => state.counter.value)`
-export const selectCount = state => state.counter.value;
+export const { changeLifeSpanFilter } = counterSlice.actions;
 
 export default counterSlice.reducer;
