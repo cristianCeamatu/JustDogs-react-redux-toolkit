@@ -1,68 +1,84 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/Mobile--responsive-yes-green) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
 
-## Available Scripts
+# React calculator.
 
-In the project directory, you can run:
+> In this project, we were required to build a calculator using the React.js library.
+> <br>
+> The app is mobile responsive and has keyboard support.
+> <br>
 
-### `yarn start`
+## App functionality
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Users can perform calculations using the mouse or keyboard.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## This web app is live, you can check it here: [Live demo](https://react-calculator-microverse.herokuapp.com/)
 
-### `yarn test`
+## Screenshot of the app.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](readme-assets/app-screenshot.png)
 
-### `yarn build`
+## Built With
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React.js
+- create-react-app
+- Big.js
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## You can check other calculators that I built:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ReactRedux - Canon Calculator clone](https://codepen.io/crisDevMM/full/ZjqKza)
+- [Javascript - Linux/Ubuntu calculator clone](https://cristianceamatu.github.io/theOdinProject-jscalculator/)
 
-### `yarn eject`
+## Prerequisities
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To get this project up and running locally, you must have [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/) installed locally.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**To get this project set up on your local machine, follow these simple steps:**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Step 1**<br>
+Navigate through the local folder where you want to clone the repository and run<br>
+`git@github.com:cristianCeamatu/microverse-react-calculator.git`. It will clone the repo to your local folder.<br>
+or with https<br>
+`https://github.com/cristianCeamatu/microverse-react-calculator/`.<br>
+**Step 2**<br>
+Run `cd microverse-react-calculator`<br>
+**Step 3**<br>
+Run `yarn install` to install the npm packages from the `package.json` file.<br>
+**Step 4**<br>
+Run `yarn start` to start the webpack server, you can now navigate to `http://localhost:3000` to view the app. The server refreshes the app every time you make a change to a file used by it.<br>
+**Step 5**<br>
+Most important, enjoy the app!<br>
 
-## Learn More
+## Tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Open Terminal
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install dependencies (only if you did not install them previously):
 
-### Code Splitting
+   `yarn install`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+3. Run the tests with the command:
 
-### Analyzing the Bundle Size
+   `yarn test`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Authors
 
-### Making a Progressive Web App
+👤 **Cristian Viorel Ceamatu**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Email: [cristian.ceamatu@gmail.com](cristian.ceamatu@gmail.com)
+- Github: [https://github.com/cristianCeamatu](https://github.com/cristianCeamatu)
+- Twitter: [https://twitter.com/CristianCeamatu](https://twitter.com/CristianCeamatu)
+- Linkedin: [https://www.linkedin.com/in/ceamatu-cristian/](https://www.linkedin.com/in/ceamatu-cristian/)
 
-### Advanced Configuration
+## 🤝 Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Our favourite contributions are those that help us improve the project, whether with a contribution, an issue, or a feature request!
 
-### Deployment
+## Show your support
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+If you've read this far....give us a ⭐️!
 
-### `yarn build` fails to minify
+## 📝 License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed by Microverse and the Odin Project
