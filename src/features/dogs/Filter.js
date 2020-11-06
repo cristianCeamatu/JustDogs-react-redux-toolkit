@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { changeBreedGroupFilter, changeLifeSpanFilter } from './dogsSlice';
+import { changeBreedGroupFilter, changeLifeSpanFilter, changeSearchFilter } from './dogsSlice';
 /* eslint-disable max-len */
 import styles from './Dogs.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
 
-  const lifeSpanFilter = useSelector(state => state.dogs.lifeSpanFilter);
+  const lifeSpanFilter = useSelector(state => state.dogs.filters.lifeSpanFilter);
   const ageCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].life_span));
   const uniqAgesArray = [...new Set(ageCategories)];
   const ageOptions = uniqAgesArray.map(category => (
@@ -17,7 +17,7 @@ const Filter = () => {
     </option>
   ));
 
-  const bredGroupFilter = useSelector(state => state.dogs.bredGroupFilter);
+  const bredGroupFilter = useSelector(state => state.dogs.filters.bredGroupFilter);
   const breedGroupCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].breed_group));
   const uniqBreedGroupsArray = [...new Set(breedGroupCategories)];
   const breedGroupOptions = uniqBreedGroupsArray.map(category => (
@@ -53,6 +53,13 @@ const Filter = () => {
           <option value="">Life span (all)</option>
           {ageOptions}
         </select>
+
+        <input
+          className={styles.filterSelect}
+          type="search"
+          placeholder="Searh by breed"
+          onChange={e => dispatch(changeSearchFilter(e.target.value))}
+        />
       </div>
     </div>
   );

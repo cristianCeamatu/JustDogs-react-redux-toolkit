@@ -19,13 +19,17 @@ const Dogs = () => {
     }
   }, [dispatch]);
 
-  const lifeSpanFilter = useSelector(state => state.dogs.lifeSpanFilter);
+  const lifeSpanFilter = useSelector(state => state.dogs.filters.lifeSpanFilter);
   if (lifeSpanFilter) {
     dogs = dogs.filter(dog => dog.breeds[0].life_span === lifeSpanFilter);
   }
-  const breedGroupFilter = useSelector(state => state.dogs.breedGroupFilter);
+  const breedGroupFilter = useSelector(state => state.dogs.filters.breedGroupFilter);
   if (breedGroupFilter) {
     dogs = dogs.filter(dog => dog.breeds[0].breed_group === breedGroupFilter);
+  }
+  const searchFilter = useSelector(state => state.dogs.filters.search);
+  if (searchFilter) {
+    dogs = dogs.filter(dog => dog.breeds[0].name.toLowerCase().includes(searchFilter.toLowerCase().trim()));
   }
 
   const dogsElements = dogs.map(dog => (

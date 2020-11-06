@@ -1,4 +1,4 @@
-/* eslint-disable  no-param-reassign */
+/* eslint-disable  no-param-reassign, max-len, object-curly-newline */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -28,16 +28,20 @@ export const counterSlice = createSlice({
     lifeSpanFilter: '',
     breedGroupFilter: '',
     currentFilteredDogsCount: 0,
+    filters: {},
     loaders: {},
     errors: {},
     success: {},
   },
   reducers: {
     changeLifeSpanFilter: (state, action) => {
-      state.lifeSpanFilter = action.payload;
+      state.filters.lifeSpanFilter = action.payload;
     },
     changeBreedGroupFilter: (state, action) => {
-      state.breedGroupFilter = action.payload;
+      state.filters.breedGroupFilter = action.payload;
+    },
+    changeSearchFilter: (state, action) => {
+      state.filters.search = action.payload;
     },
     resetDog: state => {
       state.dog = {
@@ -79,6 +83,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { changeLifeSpanFilter, changeBreedGroupFilter, resetDog } = counterSlice.actions;
+export const { changeLifeSpanFilter, changeBreedGroupFilter, changeSearchFilter, resetDog } = counterSlice.actions;
 
 export default counterSlice.reducer;
