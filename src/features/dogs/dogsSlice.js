@@ -22,6 +22,7 @@ export const counterSlice = createSlice({
   initialState: {
     data: [],
     lifeSpanFilter: '',
+    currentFilteredDogsCount: 0,
     status: 'idle',
     error: '',
   },

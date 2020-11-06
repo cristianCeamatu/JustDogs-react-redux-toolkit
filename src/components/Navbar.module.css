@@ -2,13 +2,15 @@
   background-color: #3F729B;
   color: #fff;
   padding: 5px;
+  position: relative;
+  box-shadow: 0 .2rem .5rem #3F729B;
 }
 
 .navItems {
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   font-size: 18px;
 }
 
@@ -20,8 +22,12 @@
 .navBrand {
   display: flex;
   align-items: center;
-  font-size: 38px;
+  font-size: 32px;
+  line-height: 0.9;
+}
 
+.navBrandImg {
+  margin-right: 10px;
 }
 
 @media(min-width: 568px) {

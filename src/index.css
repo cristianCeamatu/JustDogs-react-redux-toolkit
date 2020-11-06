@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker:400');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   transition: all 0.3 ease-in;
+}
+
+body {
+  font-family: Permanent Marker, serif;
 }
 
 a {

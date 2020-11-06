@@ -1,11 +1,11 @@
-/* eslint-disable  object-curly-newline, max-len, no-unused-vars, arrow-body-style */
+/* eslint-disable  object-curly-newline, max-len, no-unused-vars, arrow-body-style, react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDogs } from './dogsSlice';
 
 import Filter from './Filter';
-// import styles from './Dogs.module.css';
+import styles from './Dogs.module.css';
 
 const Dogs = () => {
   let dogs = useSelector(state => state.dogs.data);
@@ -30,18 +30,24 @@ const Dogs = () => {
   }
 
   const dogsElements = dogs.map(dog => (
-    <article key={dog.id}>
+    <article key={dog.id} className={styles.dogArticle}>
       <Link to={`/${dog.id}`} dog={dog}>
-        <img src={dog.url} alt={dog.id} />
+        <img className={styles.dogArticleImg} src={dog.url} alt={dog.id} />
+        <span className={styles.dogArticleImgBadge}>Breed group: {dog.breeds[0].breed_group}</span>
       </Link>
     </article>
   ));
   return (
-    <div>
-      <h2>Check the dogs</h2>
-      <Filter />
-      {dogsElements}
-    </div>
+    <section className={styles.dogsContainer}>
+      <Filter className={styles.filter} />
+      <div className={styles.dogs}>
+        <h3 className={styles.dogsHeading}>
+          Current dog breeds
+          <span> ({dogs.length})</span>
+        </h3>
+        <div className={styles.dogsGridContainer}>{dogsElements}</div>
+      </div>
+    </section>
   );
 };
 

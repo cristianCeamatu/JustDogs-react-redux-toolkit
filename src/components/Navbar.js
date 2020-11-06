@@ -9,8 +9,8 @@ const Navbar = () => (
     <ul className={styles.navItems}>
       <li>
         <Link to="/" className={styles.navBrand}>
-          <img src={logo} alt="Brand logo" width="40" height="40" />
-          Dog Breeds
+          <img className={styles.navBrandImg} src={logo} alt="Brand logo" width="40" height="40" />
+          Just Dogs
         </Link>
       </li>
       <li className={styles.navLink}>

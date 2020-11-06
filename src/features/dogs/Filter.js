@@ -3,10 +3,13 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeLifeSpanFilter } from './dogsSlice';
 
+import styles from './Dogs.module.css';
+
 const Filter = () => {
   const dispatch = useDispatch();
 
   const ageCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].life_span));
+  const lifeSpanFilter = useSelector(state => state.dogs.lifeSpanFilter);
   const uniqGroups = [...new Set(ageCategories)];
 
   const categoriesOptions = uniqGroups.map(category => (
@@ -16,19 +19,20 @@ const Filter = () => {
   ));
 
   return (
-    <div className="filter form-group mb-4 bg-white w-100 px-2 py-3 shadow-sm">
-      <label htmlFor="category" className="d-flex align-items-center justify-content-center mb-0">
-        Filter by life span
-        <select
-          className="form-control ml-3 w-50"
-          id="category"
-          name="category"
-          onChange={e => dispatch(changeLifeSpanFilter(e.target.value))}
-        >
-          <option value="">All</option>
-          {categoriesOptions}
-        </select>
-      </label>
+    <div className={styles.filter}>
+      <p htmlFor="category" className={styles.filterLabel}>
+        Filter by
+      </p>
+      <select
+        className={styles.filterSelect}
+        id="category"
+        name="category"
+        onChange={e => dispatch(changeLifeSpanFilter(e.target.value))}
+        value={lifeSpanFilter}
+      >
+        <option value="">Life span</option>
+        {categoriesOptions}
+      </select>
     </div>
   );
 };
