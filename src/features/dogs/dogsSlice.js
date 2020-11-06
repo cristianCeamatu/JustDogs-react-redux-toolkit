@@ -4,12 +4,10 @@ import axios from 'axios';
 
 axios.defaults.headers.common['x-apy-key'] = '4aba53a3-51c3-4af7-9941-8321ab92ac07';
 export const getDogs = createAsyncThunk('dogs/getDogs', async () => {
-  setTimeout(async () => {
-    const response = await axios.get('https://api.thedogapi.com/v1/images/search?limit=100&order=DESC&page=1&size=med');
-    const dogs = response.data.filter(dog => dog.breeds.length !== 0 && dog.breeds[0].breed_group);
+  const response = await axios.get('https://api.thedogapi.com/v1/images/search?limit=100&order=DESC&page=1&size=med');
+  const dogs = response.data.filter(dog => dog.breeds.length !== 0 && dog.breeds[0].breed_group);
 
-    return dogs;
-  }, 5000);
+  return dogs;
 });
 
 // export const getDog = createAsyncThunk('dogs/getDog', async id => {
@@ -24,8 +22,9 @@ export const counterSlice = createSlice({
     lifeSpanFilter: '',
     breedGroupFilter: '',
     currentFilteredDogsCount: 0,
-    status: 'idle',
-    error: '',
+    loaders: {},
+    errors: {},
+    success: {},
   },
   reducers: {
     changeLifeSpanFilter: (state, action) => {
@@ -40,15 +39,19 @@ export const counterSlice = createSlice({
   },
   extraReducers: {
     [getDogs.pending]: state => {
-      state.status = 'loadingDogs';
+      state.loaders.loadingDogs = true;
+      state.errors.loadingDogs = false;
     },
     [getDogs.fulfilled]: (state, action) => {
       state.data = action.payload;
-      state.status = 'idle';
+      state.success.loadingDogs = true;
+      state.loaders.loadingDogs = false;
+      state.errors.loadingDogs = false;
     },
     [getDogs.rejected]: (state, action) => {
-      state.error = action.error.message;
-      state.status = 'failedLoadingDogs';
+      state.errors.loadingDogs = action.error.message;
+      state.loaders.loadingDogs = false;
+      state.success.loadingDogs = false;
     },
   },
 });

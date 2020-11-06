@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDogs } from './dogsSlice';
 
 import Loading from '../../components/Loading';
+import Error from '../../components/Error';
 import Filter from './Filter';
 import styles from './Dogs.module.css';
 
@@ -22,7 +23,6 @@ const Dogs = () => {
   if (lifeSpanFilter) {
     dogs = dogs.filter(dog => dog.breeds[0].life_span === lifeSpanFilter);
   }
-
   const breedGroupFilter = useSelector(state => state.dogs.breedGroupFilter);
   if (breedGroupFilter) {
     dogs = dogs.filter(dog => dog.breeds[0].breed_group === breedGroupFilter);
@@ -37,18 +37,24 @@ const Dogs = () => {
     </article>
   ));
 
-  const status = useSelector(state => state.dogs.status);
-  console.log('status :>> ', status);
+  const loadingDogs = useSelector(state => state.dogs.loaders.loadingDogs);
+  const loadingDogsError = useSelector(state => state.dogs.errors.loadingDogs);
+  const dogsLoaded = useSelector(state => state.dogs.success.loadingDogs);
   return (
     <section className={styles.dogsContainer}>
       <Filter className={styles.filter} />
       <div className={styles.dogs}>
-        <Loading />
-        {/* <h3 className={styles.dogsHeading}>
-          Total Dogs
-          <span> ({dogs.length})</span>
-        </h3>
-        <div className={styles.dogsGridContainer}>{dogsElements}</div> */}
+        {loadingDogs && <Loading />}
+        {loadingDogsError && <Error msg={loadingDogsError} />}
+        {dogsLoaded && (
+          <div>
+            <h3 className={styles.dogsHeading}>
+              Total Dogs
+              <span> ({dogs.length})</span>
+            </h3>
+            <div className={styles.dogsGridContainer}>{dogsElements}</div>
+          </div>
+        )}
       </div>
     </section>
   );

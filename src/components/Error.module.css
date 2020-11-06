@@ -1,0 +1,9 @@
+.container {
+  padding: 120px 15px;
+  text-align: center;
+}
+
+.error {
+  color: #ff5252;
+  margin-bottom: 50px;
+}
