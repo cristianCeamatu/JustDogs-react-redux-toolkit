@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker:400');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700');
 
 * {
   box-sizing: border-box;
@@ -10,7 +12,6 @@
 body {
   font-family: Permanent Marker, serif;
   background-color: #fafafa;
-
 }
 
 a {

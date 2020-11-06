@@ -1,11 +1,17 @@
-/* eslint-disable  object-curly-newline, max-len, no-unused-vars, arrow-body-style */
+/* eslint-disable  object-curly-newline, max-len, no-unused-vars, arrow-body-style, react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import temperamentImg from '../../assets/temperament.png';
+import weightImg from '../../assets/weight.png';
+import heightImg from '../../assets/height.png';
+import lifeImg from '../../assets/life.png';
+import groupImg from '../../assets/job.png';
+import breedImg from '../../assets/breed.png';
+import linkImg from '../../assets/link.png';
 
-// import styles from './Dogs.module.css';
+import styles from './Dog.module.css';
 
-/* eslint-disable */
 const Dog = ({ match }) => {
   const { id } = match.params;
 
@@ -23,59 +29,80 @@ const Dog = ({ match }) => {
     weight,
     temperament,
     bred_for: bredFor,
-    breed_group: bredGroup,
+    breed_group: breedGroup,
     life_span: lifeSpan,
   } = dog.breeds[0];
 
   return (
-    <section>
-      <img src={url} alt={name} width="500" height="250" />
-      <h3>
-        Breed:
-        {name}
-      </h3>
-      <p>Super powers:</p>
-      <ul>
-        <li>
-          Temperament:
-          {temperament}
-        </li>
-        <li>
-          Life span:
-          {lifeSpan}
-        </li>
-        <li>
-          Bred for:
-          {bredFor}
-        </li>
-        <li>
-          Bred group:
-          {bredGroup}
-        </li>
-        <li>
-          Height:
-          {height.metric}
-          cm
-        </li>
-        <li>
-          Weight:
-          {weight.metric}
-          kg
-        </li>
-        <li>
-          <a
-            href={`https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(
-              name,
-            )}&go=Go&ns0=1`}
-            // TODO check norefere no opener sintax
-            target="_blank"
-            rel="noreferrer"
-          >
-            Check Wikipedia for more info about
-            <b>{` ${name}`}</b>
-          </a>
-        </li>
-      </ul>
+    <section className={styles.dog}>
+      <div>
+        <h3 className={styles.dogHeading}>{name}</h3>
+        <img className={styles.dogImg} src={url} alt={name} />
+      </div>
+      <div className={styles.dogSkillsContainer}>
+        <p className={styles.dogSubHeading}>Breed Super powers</p>
+        <ul className={styles.dogSkills}>
+          <li className={styles.dogSkill}>
+            <span className={styles.dogSkillName}>
+              <img className={styles.dogSkillImg} src={temperamentImg} alt="Temperament" />
+              Temperament:{' '}
+            </span>
+            <span className={styles.dogSkillValue}>{temperament}</span>
+          </li>
+          <li className={styles.dogSkill}>
+            <span className={styles.dogSkillName}>
+              <img className={styles.dogSkillImg} src={lifeImg} alt="Life span" />
+              Life span:{' '}
+            </span>
+            <span className={styles.dogSkillValue}>{lifeSpan}</span>
+          </li>
+          <li className={styles.dogSkill}>
+            <span className={styles.dogSkillName}>
+              <img className={styles.dogSkillImg} src={groupImg} alt="Bred for" />
+              Raised for:{' '}
+            </span>
+            <span className={styles.dogSkillValue}>{bredFor}</span>
+          </li>
+          <li className={styles.dogSkill}>
+            <span className={styles.dogSkillName}>
+              <img className={styles.dogSkillImg} src={breedImg} alt="Breed group" />
+              Breed group:{' '}
+            </span>
+            <span className={styles.dogSkillValue}>{breedGroup}</span>
+          </li>
+          <li className={styles.dogSkill}>
+            <span className={styles.dogSkillName}>
+              <img className={styles.dogSkillImg} src={heightImg} alt="Height" />
+              Height(cm):{' '}
+            </span>
+            <span className={styles.dogSkillValue}>{height.metric}</span>
+          </li>
+
+          <li className={styles.dogSkill}>
+            <span className={styles.dogSkillName}>
+              <img className={styles.dogSkillImg} src={weightImg} alt="weight" />
+              Weight(kg):{' '}
+            </span>
+            <span className={styles.dogSkillValue}>{weight.metric}</span>
+          </li>
+          <li className={styles.dogSkill}>
+            <a
+              href={`https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(
+                name,
+              )}&go=Go&ns0=1`}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.dogSkillLink}
+            >
+              <img src={linkImg} alt="Link" className={styles.dogSkillImg} />
+              <span>
+                Check Wikipedia for more info about
+                <b>{` ${name}`}</b>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </section>
   );
 };

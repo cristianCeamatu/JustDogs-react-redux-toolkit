@@ -33,7 +33,7 @@ const Dogs = () => {
     <article key={dog.id} className={styles.dogArticle}>
       <Link to={`/${dog.id}`} dog={dog}>
         <img className={styles.dogArticleImg} src={dog.url} alt={dog.id} />
-        <span className={styles.dogArticleImgBadge}>Breed group: {dog.breeds[0].breed_group}</span>
+        <span className={styles.dogArticleImgBadge}>{dog.breeds[0].name}</span>
       </Link>
     </article>
   ));
