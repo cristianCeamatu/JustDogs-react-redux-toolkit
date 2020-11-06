@@ -17,9 +17,13 @@ const Dogs = () => {
   }, [dispatch]);
 
   const lifeSpanFilter = useSelector(state => state.dogs.lifeSpanFilter);
-
   if (lifeSpanFilter) {
     dogs = dogs.filter(dog => dog.breeds[0].life_span === lifeSpanFilter);
+  }
+
+  const breedGroupFilter = useSelector(state => state.dogs.breedGroupFilter);
+  if (breedGroupFilter) {
+    dogs = dogs.filter(dog => dog.breeds[0].breed_group === breedGroupFilter);
   }
 
   const dogsElements = dogs.map(dog => (

@@ -1,18 +1,26 @@
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { changeLifeSpanFilter } from './dogsSlice';
-
+import { changeBreedGroupFilter, changeLifeSpanFilter } from './dogsSlice';
+/* eslint-disable max-len */
 import styles from './Dogs.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
 
-  const ageCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].life_span));
   const lifeSpanFilter = useSelector(state => state.dogs.lifeSpanFilter);
-  const uniqGroups = [...new Set(ageCategories)];
+  const ageCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].life_span));
+  const uniqAgesArray = [...new Set(ageCategories)];
+  const ageOptions = uniqAgesArray.map(category => (
+    <option key={category} value={category === 'All' ? '' : category}>
+      {category}
+    </option>
+  ));
 
-  const categoriesOptions = uniqGroups.map(category => (
+  const bredGroupFilter = useSelector(state => state.dogs.bredGroupFilter);
+  const breedGroupCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].breed_group));
+  const uniqBreedGroupsArray = [...new Set(breedGroupCategories)];
+  const breedGroupOptions = uniqBreedGroupsArray.map(category => (
     <option key={category} value={category === 'All' ? '' : category}>
       {category}
     </option>
@@ -27,11 +35,22 @@ const Filter = () => {
         className={styles.filterSelect}
         id="category"
         name="category"
+        onChange={e => dispatch(changeBreedGroupFilter(e.target.value))}
+        value={bredGroupFilter}
+      >
+        <option value="">Breed group (all)</option>
+        {breedGroupOptions}
+      </select>
+
+      <select
+        className={styles.filterSelect}
+        id="category"
+        name="category"
         onChange={e => dispatch(changeLifeSpanFilter(e.target.value))}
         value={lifeSpanFilter}
       >
         <option value="">Life span (all)</option>
-        {categoriesOptions}
+        {ageOptions}
       </select>
     </div>
   );

@@ -22,6 +22,7 @@ export const counterSlice = createSlice({
   initialState: {
     data: [],
     lifeSpanFilter: '',
+    breedGroupFilter: '',
     currentFilteredDogsCount: 0,
     status: 'idle',
     error: '',
@@ -29,6 +30,9 @@ export const counterSlice = createSlice({
   reducers: {
     changeLifeSpanFilter: (state, action) => {
       state.lifeSpanFilter = action.payload;
+    },
+    changeBreedGroupFilter: (state, action) => {
+      state.breedGroupFilter = action.payload;
     },
     // setDogsFromStorage: (state, action) => {
     //   state.dogs = action.payload;
@@ -49,6 +53,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { changeLifeSpanFilter } = counterSlice.actions;
+export const { changeLifeSpanFilter, changeBreedGroupFilter } = counterSlice.actions;
 
 export default counterSlice.reducer;
