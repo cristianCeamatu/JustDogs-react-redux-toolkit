@@ -4,12 +4,12 @@ import axios from 'axios';
 
 axios.defaults.headers.common['x-apy-key'] = '4aba53a3-51c3-4af7-9941-8321ab92ac07';
 export const getDogs = createAsyncThunk('dogs/getDogs', async () => {
-  const response = await axios.get(
-    'https://api.thedogapi.com/v1/images/search?limit=100&order=DESC&page=1&size=med',
-  );
-  const dogs = response.data.filter(dog => dog.breeds.length !== 0 && dog.breeds[0].breed_group);
+  setTimeout(async () => {
+    const response = await axios.get('https://api.thedogapi.com/v1/images/search?limit=100&order=DESC&page=1&size=med');
+    const dogs = response.data.filter(dog => dog.breeds.length !== 0 && dog.breeds[0].breed_group);
 
-  return dogs;
+    return dogs;
+  }, 5000);
 });
 
 // export const getDog = createAsyncThunk('dogs/getDog', async id => {

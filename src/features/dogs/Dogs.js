@@ -1,15 +1,17 @@
 /* eslint-disable  object-curly-newline, max-len, no-unused-vars, arrow-body-style, react/jsx-one-expression-per-line */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDogs } from './dogsSlice';
 
+import Loading from '../../components/Loading';
 import Filter from './Filter';
 import styles from './Dogs.module.css';
 
 const Dogs = () => {
-  let dogs = useSelector(state => state.dogs.data);
   const dispatch = useDispatch();
+
+  let dogs = useSelector(state => state.dogs.data);
   useEffect(() => {
     if (dogs.length === 0) {
       dispatch(getDogs());
@@ -34,15 +36,19 @@ const Dogs = () => {
       </Link>
     </article>
   ));
+
+  const status = useSelector(state => state.dogs.status);
+  console.log('status :>> ', status);
   return (
     <section className={styles.dogsContainer}>
       <Filter className={styles.filter} />
       <div className={styles.dogs}>
-        <h3 className={styles.dogsHeading}>
+        <Loading />
+        {/* <h3 className={styles.dogsHeading}>
           Total Dogs
           <span> ({dogs.length})</span>
         </h3>
-        <div className={styles.dogsGridContainer}>{dogsElements}</div>
+        <div className={styles.dogsGridContainer}>{dogsElements}</div> */}
       </div>
     </section>
   );

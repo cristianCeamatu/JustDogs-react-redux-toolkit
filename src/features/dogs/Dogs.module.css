@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .filterSelect {
@@ -25,6 +26,7 @@
   border: 2px solid #3F729B;
   border-radius: 5px;
   color: #3F729B;
+  min-width: 150px;
 }
 
 .dogs {

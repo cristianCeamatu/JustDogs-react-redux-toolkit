@@ -31,27 +31,29 @@ const Filter = () => {
       <p htmlFor="category" className={styles.filterLabel}>
         Filter by
       </p>
-      <select
-        className={styles.filterSelect}
-        id="category"
-        name="category"
-        onChange={e => dispatch(changeBreedGroupFilter(e.target.value))}
-        value={bredGroupFilter}
-      >
-        <option value="">Breed group (all)</option>
-        {breedGroupOptions}
-      </select>
+      <div>
+        <select
+          className={styles.filterSelect}
+          id="category"
+          name="category"
+          onChange={e => dispatch(changeBreedGroupFilter(e.target.value))}
+          value={bredGroupFilter}
+        >
+          <option value="">Breed group (all)</option>
+          {breedGroupOptions}
+        </select>
 
-      <select
-        className={styles.filterSelect}
-        id="category"
-        name="category"
-        onChange={e => dispatch(changeLifeSpanFilter(e.target.value))}
-        value={lifeSpanFilter}
-      >
-        <option value="">Life span (all)</option>
-        {ageOptions}
-      </select>
+        <select
+          className={styles.filterSelect}
+          id="category"
+          name="category"
+          onChange={e => dispatch(changeLifeSpanFilter(e.target.value))}
+          value={lifeSpanFilter}
+        >
+          <option value="">Life span (all)</option>
+          {ageOptions}
+        </select>
+      </div>
     </div>
   );
 };
