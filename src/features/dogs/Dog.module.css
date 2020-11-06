@@ -90,6 +90,12 @@
   border-bottom: 1px solid #ff9e807a;
 }
 
+.nextDogsContainer {
+  margin-bottom: 100px;
+  height: 150px;
+  font-size: 48px;
+}
+
 @media(min-width: 568px) {
   .dogImg {
     height: 400px;

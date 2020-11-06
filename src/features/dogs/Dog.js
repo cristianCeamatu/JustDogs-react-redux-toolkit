@@ -1,5 +1,5 @@
 /* eslint-disable  object-curly-newline, max-len, no-unused-vars, arrow-body-style, react/jsx-one-expression-per-line */
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDog, resetDog } from './dogsSlice';
@@ -16,6 +16,8 @@ import styles from './Dog.module.css';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
 
+const NextDogs = lazy(() => import('./NextDogs'));
+
 const Dog = ({ match }) => {
   const dispatch = useDispatch();
   const { id } = match.params;
@@ -23,7 +25,7 @@ const Dog = ({ match }) => {
   useEffect(() => {
     dispatch(getDog(id));
     return () => dispatch(resetDog());
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const dog = useSelector(state => state.dogs.dog);
   const loadingDog = useSelector(state => state.dogs.loaders.loadingDog);
@@ -116,6 +118,11 @@ const Dog = ({ match }) => {
             </div>
           </>
         )}
+      </section>
+      <section className={styles.nextDogsContainer}>
+        <Suspense fallback={<Loading />}>
+          <NextDogs />
+        </Suspense>
       </section>
     </div>
   );

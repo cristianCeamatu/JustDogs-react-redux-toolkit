@@ -18,6 +18,13 @@ export const getDog = createAsyncThunk('dogs/getDog', async id => {
   return dog;
 });
 
+export const getNextDogs = createAsyncThunk('dogs/getNextDogs', async () => {
+  const uri = 'https://api.thedogapi.com/v1/images/search?limit=15';
+  const response = await axios.get(uri);
+  const dogs = response.data.filter(dog => dog.breeds.length !== 0 && dog.breeds[0].name);
+  return dogs;
+});
+
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
@@ -25,6 +32,20 @@ export const counterSlice = createSlice({
     dog: {
       breeds: [{ weight: {}, height: {} }],
     },
+    nextDogs: [
+      {
+        breeds: [{ weight: {}, height: {} }],
+      },
+      {
+        breeds: [{ weight: {}, height: {} }],
+      },
+      {
+        breeds: [{ weight: {}, height: {} }],
+      },
+      {
+        breeds: [{ weight: {}, height: {} }],
+      },
+    ],
     lifeSpanFilter: '',
     breedGroupFilter: '',
     currentFilteredDogsCount: 0,
@@ -79,6 +100,21 @@ export const counterSlice = createSlice({
       state.errors.loadingDog = action.error.message;
       state.loaders.loadingDog = false;
       state.success.loadingDog = false;
+    },
+    [getNextDogs.pending]: state => {
+      state.loaders.loadingNextDogs = true;
+      state.errors.loadingNextDogs = false;
+    },
+    [getNextDogs.fulfilled]: (state, action) => {
+      state.nextDogs = action.payload;
+      state.success.loadingNextDogs = true;
+      state.loaders.loadingNextDogs = false;
+      state.errors.loadingNextDogs = false;
+    },
+    [getNextDogs.rejected]: (state, action) => {
+      state.errors.loadingNextDogs = action.error.message;
+      state.loaders.loadingNextDogs = false;
+      state.success.loadingNextDogs = false;
     },
   },
 });
