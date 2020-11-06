@@ -12,15 +12,19 @@ export const getDogs = createAsyncThunk('dogs/getDogs', async () => {
   return dogs;
 });
 
-// export const getDog = createAsyncThunk('dogs/getDog', async id => {
-//   const response = await axios.get(`https://api.thedogapi.com/v1/images/${id}`);
-//   return response.data;
-// });
+export const getDog = createAsyncThunk('dogs/getDog', async id => {
+  const response = await axios.get(`https://api.thedogapi.com/v1/images/${id}`);
+  const dog = response.data;
+  return dog;
+});
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
     data: [],
+    dog: {
+      breeds: [{ weight: {}, height: {} }],
+    },
     lifeSpanFilter: '',
     breedGroupFilter: '',
     currentFilteredDogsCount: 0,
@@ -35,9 +39,11 @@ export const counterSlice = createSlice({
     changeBreedGroupFilter: (state, action) => {
       state.breedGroupFilter = action.payload;
     },
-    // setDogsFromStorage: (state, action) => {
-    //   state.dogs = action.payload;
-    // },
+    resetDog: state => {
+      state.dog = {
+        breeds: [{ weight: {}, height: {} }],
+      };
+    },
   },
   extraReducers: {
     [getDogs.pending]: state => {
@@ -55,9 +61,24 @@ export const counterSlice = createSlice({
       state.loaders.loadingDogs = false;
       state.success.loadingDogs = false;
     },
+    [getDog.pending]: state => {
+      state.loaders.loadingDog = true;
+      state.errors.loadingDog = false;
+    },
+    [getDog.fulfilled]: (state, action) => {
+      state.dog = action.payload;
+      state.success.loadingDog = true;
+      state.loaders.loadingDog = false;
+      state.errors.loadingDog = false;
+    },
+    [getDog.rejected]: (state, action) => {
+      state.errors.loadingDog = action.error.message;
+      state.loaders.loadingDog = false;
+      state.success.loadingDog = false;
+    },
   },
 });
 
-export const { changeLifeSpanFilter, changeBreedGroupFilter } = counterSlice.actions;
+export const { changeLifeSpanFilter, changeBreedGroupFilter, resetDog } = counterSlice.actions;
 
 export default counterSlice.reducer;

@@ -1,6 +1,9 @@
 .container {
   padding: 120px 15px;
-  min-height: 100vh;
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
 }
 
 .sk_folding_cube {
