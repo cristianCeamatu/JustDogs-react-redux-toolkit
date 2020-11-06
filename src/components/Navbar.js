@@ -10,13 +10,7 @@ const Navbar = () => (
       <ul className={styles.navItems}>
         <li>
           <Link to="/" className={styles.navBrand}>
-            <img
-              className={styles.navBrandImg}
-              src={logo}
-              alt="Brand logo"
-              width="40"
-              height="40"
-            />
+            <img className={styles.navBrandImg} src={logo} alt="Brand logo" width="40" height="40" />
             Just Dogs
           </Link>
         </li>
@@ -26,7 +20,7 @@ const Navbar = () => (
         </li>
         <li className={styles.navLink}>
           {' '}
-          <Link to="/">Contact</Link>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </div>
