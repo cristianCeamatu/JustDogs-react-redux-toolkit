@@ -1,11 +1,18 @@
+.container {
+  padding-bottom: 100px;
+}
+
 .dog {
   font-family: Source Sans Pro, sans-serif;
   background-color: #fafafa;
   color: #565656;
   line-height: 1.5;
+  border-bottom: 1px solid #ff9e807a;
+  margin-bottom: 30px;
 }
 
 .dogHeading {
+  font-size: 24px;
   text-align: center;
   background-color: #fafafa;
   padding: 25px 10px;
@@ -20,6 +27,7 @@
 .dogSubHeading {
   text-transform: uppercase;
   text-align: center;
+  font-size: 24px;
 }
 
 .dogSkillsContainer {
@@ -43,10 +51,6 @@
   padding: 15px 0;
 }
 
-.dogSkill:not(:last-child) {
-  border-bottom: 1px solid #ff9e807a;
-}
-
 .dogSkillImg {
   margin-right: 10px;
   width: 30px;
@@ -66,6 +70,48 @@
 
 .dogSkillLink {
   text-align: center;
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
+  margin: 15px 5px;
+  padding: 15px 5px;
+  background-color: rgba(0, 0, 0, 0.096);
+  box-shadow: 0 .2rem .5rem rgba(0,0,0,.15);
+  color: #3F729B;
+}
+
+.dogSkillLink:hover {
+  color: #3f729ba6;
+  transform: scale(1.01);
+}
+
+.dogSkill:not(:last-child) {
+  border-bottom: 1px solid #ff9e807a;
+}
+
+@media(min-width: 568px) {
+  .dogImg {
+    height: 400px;
+  }
+}
+
+@media(min-width: 768px) {
+  .dogImg {
+    height: 500px;
+  }
+}
+
+@media(min-width: 992px) {
+  .dog {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 15px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+
+  .dogSkillsContainer {
+    padding: 45px 15px 0;
+  }
 }

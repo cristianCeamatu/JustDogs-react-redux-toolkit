@@ -16,13 +16,6 @@ const Dogs = () => {
     }
   }, [dispatch]);
 
-  // if (dogs.length === 0 && localStorage.getItem('dogs')) {
-  //   dogs = JSON.parse(localStorage.getItem('dogs'));
-  //   dispatch(setDogsFromStorage(dogs));
-  // } else if (dogs.length > 0) {
-  //   localStorage.setItem('dogs', JSON.stringify(dogs));
-  // }
-
   const lifeSpanFilter = useSelector(state => state.dogs.lifeSpanFilter);
 
   if (lifeSpanFilter) {
@@ -42,7 +35,7 @@ const Dogs = () => {
       <Filter className={styles.filter} />
       <div className={styles.dogs}>
         <h3 className={styles.dogsHeading}>
-          Current dog breeds
+          Total Dogs
           <span> ({dogs.length})</span>
         </h3>
         <div className={styles.dogsGridContainer}>{dogsElements}</div>
