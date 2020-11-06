@@ -30,7 +30,7 @@ const Filter = () => {
         onChange={e => dispatch(changeLifeSpanFilter(e.target.value))}
         value={lifeSpanFilter}
       >
-        <option value="">Life span</option>
+        <option value="">Life span (all)</option>
         {categoriesOptions}
       </select>
     </div>
