@@ -81,6 +81,23 @@
   box-shadow: 0 -.1rem .5rem rgba(0,0,0,.15);
 }
 
+.button {
+  border: 2px solid #ff9e80;
+  background-color: #3F729B;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.buttonIcon {
+  margin-right: 5px;
+}
+
 @media(min-width: 768px) {
   .dogsContainer {
     max-width: 90%;

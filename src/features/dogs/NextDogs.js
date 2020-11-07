@@ -7,6 +7,7 @@ import { getNextDogs } from './dogsSlice';
 
 // import Loading from '../../components/Loading';
 // import Error from '../../components/Error';
+import refreshIcon from '../../assets/refresh.png';
 import styles from './Dogs.module.css';
 
 const NextDogs = () => {
@@ -27,8 +28,10 @@ const NextDogs = () => {
   return (
     <div className={styles.dogsContainer}>
       <p className={styles.nextDogsHeading}>
-        Other dogs:
-        <button type="button" onClick={() => dispatch(getNextDogs())}>
+        Other random dogs
+        <br />
+        <button className={styles.button} type="button" onClick={() => dispatch(getNextDogs())}>
+          <img className={styles.buttonIcon} src={refreshIcon} alt="Refresh icon" width="20" height="20" />
           Load others
         </button>
       </p>
