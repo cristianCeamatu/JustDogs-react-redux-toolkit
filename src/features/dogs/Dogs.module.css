@@ -91,7 +91,7 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin: 5px auto 0;
 }
 
 .buttonIcon {
