@@ -1,11 +1,11 @@
-/* eslint-disable  no-param-reassign, max-len, object-curly-newline */
+/* eslint-disable  no-param-reassign, max-len, object-curly-newline, operator-linebreak */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 axios.defaults.headers.get['x-apy-key'] = '4aba53a3-51c3-4af7-9941-8321ab92ac07';
 
-export const getDogs = createAsyncThunk('dogs/getDogs', async () => {
-  const uri = 'https://api.thedogapi.com/v1/images/search?limit=100';
+export const getDogs = createAsyncThunk('dogs/getDogs', async (page = 0) => {
+  const uri = `https://api.thedogapi.com/v1/images/search?api_key=4aba53a3-51c3-4af7-9941-8321ab92ac07&limit=100&order=ASC&page=${page}`;
   const response = await axios.get(uri);
   const dogs = response.data.filter(dog => dog.breeds.length !== 0 && dog.breeds[0].breed_group);
 
@@ -49,6 +49,7 @@ export const counterSlice = createSlice({
     lifeSpanFilter: '',
     breedGroupFilter: '',
     currentFilteredDogsCount: 0,
+    currentPage: '0',
     filters: {},
     loaders: {},
     errors: {},
@@ -63,6 +64,9 @@ export const counterSlice = createSlice({
     },
     changeSearchFilter: (state, action) => {
       state.filters.search = action.payload;
+    },
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
     },
     resetDog: state => {
       state.dog = {
@@ -119,6 +123,12 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { changeLifeSpanFilter, changeBreedGroupFilter, changeSearchFilter, resetDog } = counterSlice.actions;
+export const {
+  changeLifeSpanFilter,
+  changeBreedGroupFilter,
+  changeSearchFilter,
+  resetDog,
+  setCurrentPage,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;

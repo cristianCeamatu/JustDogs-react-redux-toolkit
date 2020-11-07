@@ -1,12 +1,17 @@
 import React from 'react';
 
+/* eslint-disable max-len, object-curly-newline */
 import { useDispatch, useSelector } from 'react-redux';
-import { changeBreedGroupFilter, changeLifeSpanFilter, changeSearchFilter } from './dogsSlice';
-/* eslint-disable max-len */
+import { changeBreedGroupFilter, changeLifeSpanFilter, changeSearchFilter, getDogs, setCurrentPage } from './dogsSlice';
 import styles from './Dogs.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
+
+  const handlePageChange = e => {
+    dispatch(setCurrentPage(e.target.value));
+    dispatch(getDogs(e.target.value));
+  };
 
   const lifeSpanFilter = useSelector(state => state.dogs.filters.lifeSpanFilter);
   const ageCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].life_span));
@@ -26,12 +31,30 @@ const Filter = () => {
     </option>
   ));
 
+  const currentPage = useSelector(state => state.dogs.currentPage);
+  const pagesOptions = [...Array(9).keys()].map(el => (
+    <option key={`Option${el}`} value={el}>
+      Current page
+      {` ${el + 1}`}
+    </option>
+  ));
+
   return (
     <div className={styles.filter}>
       <p htmlFor="category" className={styles.filterLabel}>
         Filter by
       </p>
       <div>
+        <select
+          className={styles.filterSelect}
+          id="category"
+          name="category"
+          onChange={handlePageChange}
+          value={currentPage}
+        >
+          {pagesOptions}
+        </select>
+
         <select
           className={styles.filterSelect}
           id="category"

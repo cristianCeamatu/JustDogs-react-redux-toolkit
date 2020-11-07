@@ -40,6 +40,11 @@
   letter-spacing: 1.5px;
 }
 
+.nextDogsHeading {
+  composes: dogsHeading;
+  font-size: 20px;
+}
+
 .dogArticle {
   height: 300px;
   margin-bottom: 30px;

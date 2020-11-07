@@ -13,7 +13,6 @@ const NextDogs = () => {
   const dispatch = useDispatch();
 
   const nextDogs = useSelector(state => state.dogs.nextDogs.slice(0, 4));
-  console.log('nextDogs :>> ', nextDogs);
   useEffect(() => {
     dispatch(getNextDogs());
   }, [dispatch]);
@@ -27,9 +26,11 @@ const NextDogs = () => {
   ));
   return (
     <div className={styles.dogsContainer}>
-      <p className={styles.dogsHeading}>
+      <p className={styles.nextDogsHeading}>
         Other dogs:
-        {/* <button></button> */}
+        <button type="button" onClick={() => dispatch(getNextDogs())}>
+          Load others
+        </button>
       </p>
       <div className={styles.dogsGridContainer}>{dogsElements}</div>
     </div>
