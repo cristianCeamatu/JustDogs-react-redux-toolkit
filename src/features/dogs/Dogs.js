@@ -56,7 +56,7 @@ const Dogs = () => {
       <div className={styles.dogs}>
         {dogsLoaded && (
           <div>
-            <h3 className={styles.dogsHeading}>
+            <h3 className={styles.dogsHeading} data-testid="dogsHeading">
               Dogs on page
               <span>
                 {' '}

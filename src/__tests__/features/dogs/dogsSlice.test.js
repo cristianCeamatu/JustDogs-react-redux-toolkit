@@ -3,8 +3,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { render, cleanup } from '@testing-library/react';
 
 import { Provider } from 'react-redux';
-import store from '../../app/store';
-import App from '../../App';
+import store from '../../../app/store';
+import App from '../../../App';
 import {
   getDogs,
   getDog,
@@ -14,7 +14,7 @@ import {
   changeSearchFilter,
   resetDog,
   setCurrentPage,
-} from '../../features/dogs/dogsSlice';
+} from '../../../features/dogs/dogsSlice';
 
 afterEach(() => {
   cleanup();

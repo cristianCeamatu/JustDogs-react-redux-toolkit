@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "@testing-library/dom": "^7.26.5",
+    "history": "^5.0.0",
     "stylelint": "13.3.x",
     "stylelint-config-standard": "20.0.x",
     "stylelint-csstree-validator": "^1.9.0",

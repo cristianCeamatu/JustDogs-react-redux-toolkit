@@ -6,7 +6,7 @@ import Main from './features/dogs/Main';
 
 function App() {
   return (
-    <div data-testid="app">
+    <div>
       <Navbar />
       <Main />
       <Footer />
