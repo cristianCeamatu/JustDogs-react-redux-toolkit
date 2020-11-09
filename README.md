@@ -1,17 +1,24 @@
 ![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/Mobile--responsive-yes-green) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
 
-# React calculator.
+# Just dogs | Dog breeds catalog
 
-> In this project, we were required to build a calculator using the React.js library.
+> The <b>Just Dogs</b> web app presents dogs images and their skills. Items can be filtered by the breed group, life span or searched by the breed name.
 > <br>
-> The app is mobile responsive and has keyboard support.
+> The APP is created latest industry standards using React.js and Redux Toolkit
+> <br>
+> API used for fetching data: [TheDogApi](https://thedogapi.com/)
+> <br>
+> The app is fully mobile responsive and tested using Jest and the React Testing Library.
 > <br>
 
 ## App functionality
 
-- Users can perform calculations using the mouse or keyboard.
+- Users view a catalog of dogs and their breed on the homepage.
+- Users can change the page number, filter by breed group/life span or search by breed name.
+- Users can click on a image to be routed to the dog show page where they can see their details: temperament, life span, raised for, breed group, height and weight. They can click on the Wikipedia link if they are interested to check extra info about the dog.
+- The dog show page contains an other random dogs sections where users can navigate to see other dogs
 
-## This web app is live, you can check it here: [Live demo](https://react-calculator-microverse.herokuapp.com/)
+## This web app is live, you can check it here: [Live demo](https://justdogs-react.herokuapp.com/)
 
 ## Screenshot of the app.
 
@@ -21,12 +28,17 @@
 
 - React.js
 - create-react-app
-- Big.js
+- Redux Toolkit
+- Axios
 
-## You can check other calculators that I built:
+## Testing
+- Jest
+- React Testing Library
 
+## You can check other react that I built:
+
+- [Bookstore](https://redux-bookstore199.herokuapp.com/)
 - [ReactRedux - Canon Calculator clone](https://codepen.io/crisDevMM/full/ZjqKza)
-- [Javascript - Linux/Ubuntu calculator clone](https://cristianceamatu.github.io/theOdinProject-jscalculator/)
 
 ## Prerequisities
 
@@ -38,11 +50,9 @@ To get this project up and running locally, you must have [node](https://nodejs.
 
 **Step 1**<br>
 Navigate through the local folder where you want to clone the repository and run<br>
-`git@github.com:cristianCeamatu/microverse-react-calculator.git`. It will clone the repo to your local folder.<br>
-or with https<br>
-`https://github.com/cristianCeamatu/microverse-react-calculator/`.<br>
+`git clone https://github.com/cristianCeamatu/JustDogs-react-redux-toolkit`. It will clone the repo to your local folder.<br>
 **Step 2**<br>
-Run `cd microverse-react-calculator`<br>
+Run `cd JustDogs-react-redux-toolkit`<br>
 **Step 3**<br>
 Run `yarn install` to install the npm packages from the `package.json` file.<br>
 **Step 4**<br>

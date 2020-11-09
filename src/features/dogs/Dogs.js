@@ -55,7 +55,7 @@ const Dogs = () => {
         {dogsLoaded && (
           <div>
             <h3 className={styles.dogsHeading}>
-              Total Dogs
+              Dogs on page
               <span> ({dogs.length})</span>
             </h3>
             <div className={styles.dogsGridContainer}>{dogsElements}</div>
