@@ -26,7 +26,7 @@ export const getNextDogs = createAsyncThunk('dogs/getNextDogs', async () => {
 });
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'dogs',
   initialState: {
     data: [],
     dog: {
@@ -131,8 +131,8 @@ export const {
   changeLifeSpanFilter,
   changeBreedGroupFilter,
   changeSearchFilter,
-  resetDog,
   setCurrentPage,
+  resetDog,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;
