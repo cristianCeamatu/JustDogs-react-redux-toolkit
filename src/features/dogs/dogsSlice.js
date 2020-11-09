@@ -46,7 +46,6 @@ export const counterSlice = createSlice({
         breeds: [{ weight: {}, height: {} }],
       },
     ],
-    // currentFilteredDogsCount: 0,
     currentPage: '0',
     filters: {},
     loaders: {},
@@ -76,6 +75,7 @@ export const counterSlice = createSlice({
     [getDogs.pending]: state => {
       state.loaders.loadingDogs = true;
       state.errors.loadingDogs = false;
+      state.success.loadingDogs = false;
     },
     [getDogs.fulfilled]: (state, action) => {
       state.data = action.payload;
@@ -91,6 +91,7 @@ export const counterSlice = createSlice({
     [getDog.pending]: state => {
       state.loaders.loadingDog = true;
       state.errors.loadingDog = false;
+      state.success.loadingDog = false;
     },
     [getDog.fulfilled]: (state, action) => {
       state.dog = action.payload;
@@ -106,6 +107,7 @@ export const counterSlice = createSlice({
     [getNextDogs.pending]: state => {
       state.loaders.loadingNextDogs = true;
       state.errors.loadingNextDogs = false;
+      state.success.loadingNextDogs = false;
     },
     [getNextDogs.fulfilled]: (state, action) => {
       state.nextDogs = action.payload;
