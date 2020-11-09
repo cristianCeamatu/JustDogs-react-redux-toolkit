@@ -43,8 +43,19 @@ const NextDogs = () => {
       <p className={styles.nextDogsHeading} ref={nextDogsRef}>
         Other random dogs
         <br />
-        <button className={styles.button} type="button" onClick={handleClick} disabled={loadingNextDogs}>
-          <img className={styles.buttonIcon} src={refreshIcon} alt="Refresh icon" width="20" height="20" />
+        <button
+          className={styles.button}
+          type="button"
+          onClick={handleClick}
+          disabled={loadingNextDogs}
+        >
+          <img
+            className={styles.buttonIcon}
+            src={refreshIcon}
+            alt="Refresh icon"
+            width="20"
+            height="20"
+          />
           Load others
         </button>
       </p>

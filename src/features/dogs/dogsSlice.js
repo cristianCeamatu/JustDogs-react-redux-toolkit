@@ -34,15 +34,19 @@ export const counterSlice = createSlice({
     },
     nextDogs: [
       {
+        id: 1,
         breeds: [{ weight: {}, height: {} }],
       },
       {
+        id: 2,
         breeds: [{ weight: {}, height: {} }],
       },
       {
+        id: 3,
         breeds: [{ weight: {}, height: {} }],
       },
       {
+        id: 4,
         breeds: [{ weight: {}, height: {} }],
       },
     ],

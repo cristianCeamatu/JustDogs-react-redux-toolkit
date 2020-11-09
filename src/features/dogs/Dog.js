@@ -34,7 +34,6 @@ const Dog = ({ match }) => {
   const dog = useSelector(state => state.dogs.dog);
   const loadingDog = useSelector(state => state.dogs.loaders.loadingDog);
   const loadingDogError = useSelector(state => state.dogs.errors.loadingDog);
-  const dogLoaded = useSelector(state => state.dogs.success.loadingDog);
 
   const { url } = dog;
   const {
@@ -59,85 +58,85 @@ const Dog = ({ match }) => {
       <section className={styles.dog} ref={mainDogArticleRef}>
         {loadingDog && <Loading msg="Loading dog..." />}
         {loadingDogError && <Error msg={loadingDogError} />}
-        {dogLoaded && (
-          <>
-            <div className={styles.dogImgContainer}>
-              <h3 className={styles.dogHeading}>{name}</h3>
-              <img className={styles.dogImg} src={url} alt={name} />
-              <button type="button" className={styles.backButton} onClick={goBack}>
-                Go back
-              </button>
-            </div>
-            <div className={styles.dogSkillsContainer}>
-              <p className={styles.dogSubHeading}>Dog Super powers</p>
-              <ul className={styles.dogSkills}>
-                <li className={styles.dogSkill}>
-                  <span className={styles.dogSkillName}>
-                    <img className={styles.dogSkillImg} src={temperamentImg} alt="Temperament" />
-                    Temperament:
-                    {' '}
-                  </span>
-                  <span className={styles.dogSkillValue}>{temperament}</span>
-                </li>
-                <li className={styles.dogSkill}>
-                  <span className={styles.dogSkillName}>
-                    <img className={styles.dogSkillImg} src={lifeImg} alt="Life span" />
-                    Life span:
-                    {' '}
-                  </span>
-                  <span className={styles.dogSkillValue}>{lifeSpan}</span>
-                </li>
-                <li className={styles.dogSkill}>
-                  <span className={styles.dogSkillName}>
-                    <img className={styles.dogSkillImg} src={groupImg} alt="Bred for" />
-                    Raised for:
-                    {' '}
-                  </span>
-                  <span className={styles.dogSkillValue}>{bredFor}</span>
-                </li>
-                <li className={styles.dogSkill}>
-                  <span className={styles.dogSkillName}>
-                    <img className={styles.dogSkillImg} src={breedImg} alt="Breed group" />
-                    Breed group:
-                    {' '}
-                  </span>
-                  <span className={styles.dogSkillValue}>{breedGroup}</span>
-                </li>
-                <li className={styles.dogSkill}>
-                  <span className={styles.dogSkillName}>
-                    <img className={styles.dogSkillImg} src={heightImg} alt="Height" />
-                    Height(cm):
-                    {' '}
-                  </span>
-                  <span className={styles.dogSkillValue}>{heightCm}</span>
-                </li>
+        <>
+          <div className={styles.dogImgContainer}>
+            <h3 className={styles.dogHeading}>{name}</h3>
+            <img className={styles.dogImg} src={url} alt={name} />
+            <button type="button" className={styles.backButton} onClick={goBack}>
+              Go back
+            </button>
+          </div>
+          <div className={styles.dogSkillsContainer}>
+            <p className={styles.dogSubHeading}>Dog Super powers</p>
+            <ul className={styles.dogSkills}>
+              <li className={styles.dogSkill}>
+                <span className={styles.dogSkillName}>
+                  <img className={styles.dogSkillImg} src={temperamentImg} alt="Temperament" />
+                  Temperament:
+                  {' '}
+                </span>
+                <span className={styles.dogSkillValue}>{temperament}</span>
+              </li>
+              <li className={styles.dogSkill}>
+                <span className={styles.dogSkillName}>
+                  <img className={styles.dogSkillImg} src={lifeImg} alt="Life span" />
+                  Life span:
+                  {' '}
+                </span>
+                <span className={styles.dogSkillValue}>{lifeSpan}</span>
+              </li>
+              <li className={styles.dogSkill}>
+                <span className={styles.dogSkillName}>
+                  <img className={styles.dogSkillImg} src={groupImg} alt="Bred for" />
+                  Raised for:
+                  {' '}
+                </span>
+                <span className={styles.dogSkillValue}>{bredFor}</span>
+              </li>
+              <li className={styles.dogSkill}>
+                <span className={styles.dogSkillName}>
+                  <img className={styles.dogSkillImg} src={breedImg} alt="Breed group" />
+                  Breed group:
+                  {' '}
+                </span>
+                <span className={styles.dogSkillValue}>{breedGroup}</span>
+              </li>
+              <li className={styles.dogSkill}>
+                <span className={styles.dogSkillName}>
+                  <img className={styles.dogSkillImg} src={heightImg} alt="Height" />
+                  Height(cm):
+                  {' '}
+                </span>
+                <span className={styles.dogSkillValue}>{heightCm}</span>
+              </li>
 
-                <li className={styles.dogSkill}>
-                  <span className={styles.dogSkillName}>
-                    <img className={styles.dogSkillImg} src={weightImg} alt="weight" />
-                    Weight(kg):
-                    {' '}
+              <li className={styles.dogSkill}>
+                <span className={styles.dogSkillName}>
+                  <img className={styles.dogSkillImg} src={weightImg} alt="weight" />
+                  Weight(kg):
+                  {' '}
+                </span>
+                <span className={styles.dogSkillValue}>{weightKg}</span>
+              </li>
+              <li className={styles.dogSkill}>
+                <a
+                  href={`https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(
+                    name,
+                  )}&go=Go&ns0=1`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.dogSkillLink}
+                >
+                  <img src={linkImg} alt="Link" className={styles.dogSkillImg} />
+                  <span>
+                    Check Wikipedia for more info about
+                    {` ${name}`}
                   </span>
-                  <span className={styles.dogSkillValue}>{weightKg}</span>
-                </li>
-                <li className={styles.dogSkill}>
-                  <a
-                    href={`https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(name)}&go=Go&ns0=1`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.dogSkillLink}
-                  >
-                    <img src={linkImg} alt="Link" className={styles.dogSkillImg} />
-                    <span>
-                      Check Wikipedia for more info about
-                      {` ${name}`}
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </>
-        )}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </>
       </section>
       <section className={styles.nextDogsContainer}>
         <Suspense fallback={<Loading msg="Loading next dogs" />}>
