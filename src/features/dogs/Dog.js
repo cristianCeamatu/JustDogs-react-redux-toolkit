@@ -1,5 +1,5 @@
 /* eslint-disable  object-curly-newline, max-len, no-unused-vars, arrow-body-style, react/jsx-one-expression-per-line */
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { useEffect, useRef, lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDog, resetDog } from './dogsSlice';
@@ -19,11 +19,13 @@ import Error from '../../components/Error';
 const NextDogs = lazy(() => import('./NextDogs'));
 
 const Dog = ({ match }) => {
-  const dispatch = useDispatch();
-  const { id } = match.params;
+  const mainDogArticleRef = useRef(null);
 
+  const { id } = match.params;
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDog(id));
+    window.scrollTo(0, mainDogArticleRef.current.offsetTop);
     return () => dispatch(resetDog());
   }, [dispatch, id]);
 
@@ -45,7 +47,7 @@ const Dog = ({ match }) => {
 
   return (
     <div className={styles.container}>
-      <section className={styles.dog}>
+      <section className={styles.dog} ref={mainDogArticleRef}>
         {loadingDog && <Loading />}
         {loadingDogError && <Error msg={loadingDogError} />}
         {dogLoaded && (
