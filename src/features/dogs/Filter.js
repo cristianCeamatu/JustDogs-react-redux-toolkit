@@ -17,16 +17,16 @@ const Filter = () => {
   const ageCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].life_span));
   const uniqAgesArray = [...new Set(ageCategories)];
   const ageOptions = uniqAgesArray.map(category => (
-    <option key={category} value={category === 'All' ? '' : category}>
+    <option key={category} value={category}>
       {category}
     </option>
   ));
 
-  const bredGroupFilter = useSelector(state => state.dogs.filters.bredGroupFilter);
+  const breedGroupFilter = useSelector(state => state.dogs.filters.breedGroupFilter);
   const breedGroupCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].breed_group));
   const uniqBreedGroupsArray = [...new Set(breedGroupCategories)];
   const breedGroupOptions = uniqBreedGroupsArray.map(category => (
-    <option key={category} value={category === 'All' ? '' : category}>
+    <option key={category} value={category}>
       {category}
     </option>
   ));
@@ -41,14 +41,12 @@ const Filter = () => {
 
   return (
     <div className={styles.filter}>
-      <p htmlFor="category" className={styles.filterLabel}>
-        Filter by
-      </p>
+      <p className={styles.filterLabel}>Filter by</p>
       <div>
         <select
           className={styles.filterSelect}
-          id="category"
-          name="category"
+          id="pageCategory"
+          name="pageCategory"
           onChange={handlePageChange}
           value={currentPage}
         >
@@ -57,10 +55,10 @@ const Filter = () => {
 
         <select
           className={styles.filterSelect}
-          id="category"
-          name="category"
+          id="bredCategory"
+          name="bredCategory"
           onChange={e => dispatch(changeBreedGroupFilter(e.target.value))}
-          value={bredGroupFilter}
+          value={breedGroupFilter}
         >
           <option value="">Breed group (all)</option>
           {breedGroupOptions}
@@ -68,8 +66,8 @@ const Filter = () => {
 
         <select
           className={styles.filterSelect}
-          id="category"
-          name="category"
+          id="lifeSpanCategory"
+          name="lifeSpanCategory"
           onChange={e => dispatch(changeLifeSpanFilter(e.target.value))}
           value={lifeSpanFilter}
         >
@@ -80,6 +78,8 @@ const Filter = () => {
         <input
           className={styles.filterSelect}
           type="search"
+          id="search"
+          name="search"
           placeholder="Searh by breed"
           onChange={e => dispatch(changeSearchFilter(e.target.value))}
         />
