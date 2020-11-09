@@ -2,6 +2,7 @@ import React, {
   useEffect, useRef, lazy, Suspense,
 } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDog, resetDog } from './dogsSlice';
 
@@ -46,6 +47,13 @@ const Dog = ({ match }) => {
     life_span: lifeSpan,
   } = dog.breeds[0];
 
+  const history = useHistory();
+
+  const goBack = e => {
+    e.preventDefault();
+    history.goBack();
+  };
+
   return (
     <div className={styles.container}>
       <section className={styles.dog} ref={mainDogArticleRef}>
@@ -56,6 +64,9 @@ const Dog = ({ match }) => {
             <div className={styles.dogImgContainer}>
               <h3 className={styles.dogHeading}>{name}</h3>
               <img className={styles.dogImg} src={url} alt={name} />
+              <button type="button" className={styles.backButton} onClick={goBack}>
+                Go back
+              </button>
             </div>
             <div className={styles.dogSkillsContainer}>
               <p className={styles.dogSubHeading}>Dog Super powers</p>

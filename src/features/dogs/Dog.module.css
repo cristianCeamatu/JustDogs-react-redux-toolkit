@@ -11,6 +11,10 @@
   margin-bottom: 30px;
 }
 
+.dogImgContainer {
+  text-align: center;
+}
+
 .dogHeading {
   font-size: 24px;
   text-align: center;
@@ -94,6 +98,21 @@
   margin-bottom: 100px;
   height: 150px;
   font-size: 48px;
+}
+
+.backButton {
+  margin: 0 auto 10px;
+  background-color: #3f729b;
+  padding: 5px 15px;
+  color: #fff;
+  outline: none;
+  border: 1px solid #ff9e807a;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.backButton:active {
+  opacity: 0.8;
 }
 
 @media (min-width: 568px) {
