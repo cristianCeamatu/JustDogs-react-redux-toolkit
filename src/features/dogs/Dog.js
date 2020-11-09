@@ -1,5 +1,6 @@
-/* eslint-disable  object-curly-newline, max-len, no-unused-vars, arrow-body-style, react/jsx-one-expression-per-line */
-import React, { useEffect, useRef, lazy, Suspense } from 'react';
+import React, {
+  useEffect, useRef, lazy, Suspense,
+} from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDog, resetDog } from './dogsSlice';
@@ -62,35 +63,40 @@ const Dog = ({ match }) => {
                 <li className={styles.dogSkill}>
                   <span className={styles.dogSkillName}>
                     <img className={styles.dogSkillImg} src={temperamentImg} alt="Temperament" />
-                    Temperament:{' '}
+                    Temperament:
+                    {' '}
                   </span>
                   <span className={styles.dogSkillValue}>{temperament}</span>
                 </li>
                 <li className={styles.dogSkill}>
                   <span className={styles.dogSkillName}>
                     <img className={styles.dogSkillImg} src={lifeImg} alt="Life span" />
-                    Life span:{' '}
+                    Life span:
+                    {' '}
                   </span>
                   <span className={styles.dogSkillValue}>{lifeSpan}</span>
                 </li>
                 <li className={styles.dogSkill}>
                   <span className={styles.dogSkillName}>
                     <img className={styles.dogSkillImg} src={groupImg} alt="Bred for" />
-                    Raised for:{' '}
+                    Raised for:
+                    {' '}
                   </span>
                   <span className={styles.dogSkillValue}>{bredFor}</span>
                 </li>
                 <li className={styles.dogSkill}>
                   <span className={styles.dogSkillName}>
                     <img className={styles.dogSkillImg} src={breedImg} alt="Breed group" />
-                    Breed group:{' '}
+                    Breed group:
+                    {' '}
                   </span>
                   <span className={styles.dogSkillValue}>{breedGroup}</span>
                 </li>
                 <li className={styles.dogSkill}>
                   <span className={styles.dogSkillName}>
                     <img className={styles.dogSkillImg} src={heightImg} alt="Height" />
-                    Height(cm):{' '}
+                    Height(cm):
+                    {' '}
                   </span>
                   <span className={styles.dogSkillValue}>{heightCm}</span>
                 </li>
@@ -98,7 +104,8 @@ const Dog = ({ match }) => {
                 <li className={styles.dogSkill}>
                   <span className={styles.dogSkillName}>
                     <img className={styles.dogSkillImg} src={weightImg} alt="weight" />
-                    Weight(kg):{' '}
+                    Weight(kg):
+                    {' '}
                   </span>
                   <span className={styles.dogSkillValue}>{weightKg}</span>
                 </li>

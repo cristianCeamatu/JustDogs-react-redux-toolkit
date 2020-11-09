@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useEffect, useRef } from 'react';
 
 import { Link } from 'react-router-dom';
@@ -26,8 +25,8 @@ const NextDogs = () => {
     window.scrollTo(0, nextDogsRef.current.offsetTop);
   };
 
-  const dogsElements = nextDogs.map((dog, index) => (
-    <article key={index} className={styles.dogArticle}>
+  const dogsElements = nextDogs.map(dog => (
+    <article key={dog.id} className={styles.dogArticle}>
       <Link to={`/${dog.id}`} dog={dog}>
         <img className={styles.dogArticleImg} src={dog.url} alt={dog.id} />
       </Link>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.css';
 import globalStyles from '../Globals.module.css';
-/* eslint-disable react/jsx-one-expression-per-line */
+
 const Footer = () => (
   <footer className={styles.footer}>
     <div className={styles.container}>

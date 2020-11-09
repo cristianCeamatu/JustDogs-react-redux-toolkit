@@ -4,11 +4,11 @@
 }
 
 .nav {
-  background-color: #3F729B;
+  background-color: #3f729b;
   color: #fff;
   padding: 5px;
   position: relative;
-  box-shadow: 0 .2rem .5rem #3F729B;
+  box-shadow: 0 0.2rem 0.5rem #3f729b;
 }
 
 .navItems {
@@ -35,7 +35,7 @@
   margin-right: 10px;
 }
 
-@media(min-width: 568px) {
+@media (min-width: 568px) {
   .navBrand {
     padding: 0 15px;
   }

@@ -1,4 +1,3 @@
-/* eslint-disable  object-curly-newline, max-len, no-unused-vars, arrow-body-style, react/jsx-one-expression-per-line */
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -29,7 +28,10 @@ const Dogs = () => {
   }
   const searchFilter = useSelector(state => state.dogs.filters.search);
   if (searchFilter) {
-    dogs = dogs.filter(dog => dog.breeds[0].name.toLowerCase().includes(searchFilter.toLowerCase().trim()));
+    dogs = dogs.filter(dog => {
+      const { name } = dog.breeds[0];
+      return name.toLowerCase().includes(searchFilter.toLowerCase().trim());
+    });
   }
 
   const dogsElements = dogs.map(dog => (
@@ -56,7 +58,12 @@ const Dogs = () => {
           <div>
             <h3 className={styles.dogsHeading}>
               Dogs on page
-              <span> ({dogs.length})</span>
+              <span>
+                {' '}
+                (
+                {dogs.length}
+                )
+              </span>
             </h3>
             <div className={styles.dogsGridContainer}>{dogsElements}</div>
           </div>

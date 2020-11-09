@@ -32,7 +32,7 @@
 
 .dogSkillsContainer {
   padding: 15px;
-  font-family: Open Sans Condensed, sans-serif;
+  font-family: Open Sans Condensed, sans-serif, serif;
   font-weight: bold;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .dogSkillValue {
-  color: #3F729B;
+  color: #3f729b;
   width: 50%;
   text-align: right;
 }
@@ -77,8 +77,8 @@
   margin: 15px 5px;
   padding: 15px 5px;
   background-color: rgba(0, 0, 0, 0.096);
-  box-shadow: 0 .2rem .5rem rgba(0,0,0,.15);
-  color: #3F729B;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
+  color: #3f729b;
 }
 
 .dogSkillLink:hover {
@@ -96,19 +96,19 @@
   font-size: 48px;
 }
 
-@media(min-width: 568px) {
+@media (min-width: 568px) {
   .dogImg {
     height: 400px;
   }
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .dogImg {
     height: 500px;
   }
 }
 
-@media(min-width: 992px) {
+@media (min-width: 992px) {
   .dog {
     display: grid;
     grid-template-columns: 1fr 1fr;

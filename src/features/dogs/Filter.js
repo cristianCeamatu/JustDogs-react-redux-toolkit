@@ -1,8 +1,9 @@
 import React from 'react';
 
-/* eslint-disable max-len, object-curly-newline */
 import { useDispatch, useSelector } from 'react-redux';
-import { changeBreedGroupFilter, changeLifeSpanFilter, changeSearchFilter, getDogs, setCurrentPage } from './dogsSlice';
+import {
+  changeBreedGroupFilter, changeLifeSpanFilter, changeSearchFilter, getDogs, setCurrentPage,
+} from './dogsSlice';
 import styles from './Dogs.module.css';
 
 const Filter = () => {
@@ -23,7 +24,10 @@ const Filter = () => {
   ));
 
   const breedGroupFilter = useSelector(state => state.dogs.filters.breedGroupFilter);
-  const breedGroupCategories = useSelector(state => state.dogs.data.map(dog => dog.breeds[0].breed_group));
+  const breedGroupCategories = useSelector(state => state.dogs.data.map(dog => {
+    const { breed_group: breedGroup } = dog.breeds[0];
+    return breedGroup;
+  }));
   const uniqBreedGroupsArray = [...new Set(breedGroupCategories)];
   const breedGroupOptions = uniqBreedGroupsArray.map(category => (
     <option key={category} value={category}>

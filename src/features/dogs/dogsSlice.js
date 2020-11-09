@@ -1,4 +1,4 @@
-/* eslint-disable  no-param-reassign, max-len, object-curly-newline, operator-linebreak */
+/* eslint-disable  no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
