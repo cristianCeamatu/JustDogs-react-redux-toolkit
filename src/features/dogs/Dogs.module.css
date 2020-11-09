@@ -100,12 +100,16 @@
 }
 
 .button:active {
-  border: 0;
-  opacity: 0.95;
+outline: none;
 }
 
 .button[disabled] {
- opacity: 0.2;
+  border: 0;
+ opacity: 0.6;
+}
+
+.button[disabled]  > img{
+  animation: rotate 0.6s;
 }
 
 .buttonIcon {
@@ -142,4 +146,9 @@
   .dogsGridContainer{
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  from {transform: rotate(180deg);}
 }
