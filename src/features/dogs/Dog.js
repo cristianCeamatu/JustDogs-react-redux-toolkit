@@ -48,7 +48,7 @@ const Dog = ({ match }) => {
   return (
     <div className={styles.container}>
       <section className={styles.dog} ref={mainDogArticleRef}>
-        {loadingDog && <Loading />}
+        {loadingDog && <Loading msg="Loading dog..." />}
         {loadingDogError && <Error msg={loadingDogError} />}
         {dogLoaded && (
           <>
@@ -122,7 +122,7 @@ const Dog = ({ match }) => {
         )}
       </section>
       <section className={styles.nextDogsContainer}>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Loading msg="Loading next dogs" />}>
           <NextDogs />
         </Suspense>
       </section>
