@@ -2,7 +2,7 @@
 
 # Just dogs | Dog breeds catalog
 
-> The <b>Just Dogs</b> web app presents dogs images and their skills. Items can be filtered by the breed group, life span or searched by the breed name.
+> The <b>Just Dogs</b> web app presents dogs images and their skills.Items can be filtered by breed group, life span, or searched by breed name.
 > <br>
 > The APP is created latest industry standards using React.js and Redux Toolkit
 > <br>
@@ -15,8 +15,8 @@
 
 - Users view a catalog of dogs and their breed on the homepage.
 - Users can change the page number, filter by breed group/life span or search by breed name.
-- Users can click on a image to be routed to the dog show page where they can see their details: temperament, life span, raised for, breed group, height and weight. They can click on the Wikipedia link if they are interested to check extra info about the dog.
-- The dog show page contains an other random dogs sections where users can navigate to see other dogs
+- Users can click on an image to be routed to the dog show page where they can see their details: temperament, life span, raised for, breed group, height, and weight. They can click on the Wikipedia link if they are interested to check extra info about the dog.
+- The dog show page contains other random dogs sections where users can navigate to see other dogs
 
 ## This web app is live, you can check it here: [Live demo](https://justdogs-react.herokuapp.com/)
 
@@ -37,7 +37,7 @@
 
 ## You can check other react that I built:
 
-- [Bookstore](https://redux-bookstore199.herokuapp.com/)
+- [Bookstore - React Redux Toolkit with Rails API backend](https://redux-bookstore199.herokuapp.com/)
 - [ReactRedux - Canon Calculator clone](https://codepen.io/crisDevMM/full/ZjqKza)
 
 ## Prerequisities
@@ -94,4 +94,4 @@ If you've read this far....give us a ⭐️!
 This project is licensed by Microverse and the Odin Project
 
 ## Credits
-<div>Favicon made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<div>Favicon and icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
