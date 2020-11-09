@@ -41,15 +41,17 @@ const Dogs = () => {
     </article>
   ));
 
+  const currentPage = useSelector(state => state.dogs.currentPage);
   const loadingDogs = useSelector(state => state.dogs.loaders.loadingDogs);
   const loadingDogsError = useSelector(state => state.dogs.errors.loadingDogs);
   const dogsLoaded = useSelector(state => state.dogs.success.loadingDogs);
+
+  if (loadingDogs) return <Loading msg={`Loading dogs for page ${+currentPage + 1}`} />;
+  if (loadingDogsError) return <Error msg={loadingDogsError} />;
   return (
     <section className={styles.dogsContainer}>
       <Filter className={styles.filter} />
       <div className={styles.dogs}>
-        {loadingDogs && <Loading />}
-        {loadingDogsError && <Error msg={loadingDogsError} />}
         {dogsLoaded && (
           <div>
             <h3 className={styles.dogsHeading}>

@@ -7,6 +7,14 @@
   z-index: 5;
 }
 
+.message {
+  font-family: Source Sans Pro, sans-serif;
+  padding: 30px 0;
+  color: #3F729B;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
 .sk_folding_cube {
   margin: 20px auto;
   width: 40px;
