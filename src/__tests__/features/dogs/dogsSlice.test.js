@@ -31,7 +31,6 @@ describe('dogsSlice async actions and initial state', () => {
   test('has no dogs in the data array in initial fase', () => {
     const { data: dogs } = store.getState().dogs;
     expect(dogs.length).toStrictEqual(0);
-    // expect(Container).toBeFalsy();
   });
 
   test('getDogs fetches the Dogs from the API and populates the state data array', async () => {
