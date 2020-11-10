@@ -1,68 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/Mobile--responsive-yes-green) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
 
-## Available Scripts
+# Just dogs | Dog breeds catalog
 
-In the project directory, you can run:
+> The <b>Just Dogs</b> web app presents dogs images and their skills.Items can be filtered by breed group, life span, or searched by breed name.
+> <br>
+> The APP is created latest industry standards using React.js and Redux Toolkit
+> <br>
+> API used for fetching data: [TheDogApi](https://thedogapi.com/)
+> <br>
+> The app is fully mobile responsive and tested using Jest and the React Testing Library.
+> <br>
 
-### `yarn start`
+## App functionality
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Users view a catalog of dogs and their breed on the homepage.
+- Users can change the page number, filter by breed group/life span or search by breed name.
+- Users can click on an image to be routed to the dog show page where they can see their details: temperament, life span, raised for, breed group, height, and weight. They can click on the Wikipedia link if they are interested to check extra info about the dog.
+- The dog show page contains other random dogs sections where users can navigate to see other dogs
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## This web app is live, you can check it here: [Live demo](https://justdogs-react.herokuapp.com/)
 
-### `yarn test`
+## Screenshot of the app.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](readme-assets/app-screenshot.png)
 
-### `yarn build`
+## Video presentation [here](https://www.youtube.com/watch?v=oYA0CIVi_pc)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Built With
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- React.js
+- create-react-app
+- Redux Toolkit
+- Axios
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Testing
+- Jest
+- React Testing Library
 
-### `yarn eject`
+## You can check other react that I built:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [Bookstore - React Redux Toolkit with Rails API backend](https://redux-bookstore199.herokuapp.com/)
+- [ReactRedux - Canon Calculator clone](https://codepen.io/crisDevMM/full/ZjqKza)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Prerequisities
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To get this project up and running locally, you must have [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/) installed locally.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+**To get this project set up on your local machine, follow these simple steps:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Step 1**<br>
+Navigate through the local folder where you want to clone the repository and run<br>
+`git clone https://github.com/cristianCeamatu/JustDogs-react-redux-toolkit`. It will clone the repo to your local folder.<br>
+**Step 2**<br>
+Run `cd JustDogs-react-redux-toolkit`<br>
+**Step 3**<br>
+Run `yarn install` to install the npm packages from the `package.json` file.<br>
+**Step 4**<br>
+Run `yarn start` to start the webpack server, you can now navigate to `http://localhost:3000` to view the app. The server refreshes the app every time you make a change to a file used by it.<br>
+**Step 5**<br>
+Most important, enjoy the app!<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tests
 
-### Code Splitting
+1. Open Terminal
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+2. Install dependencies (only if you did not install them previously):
 
-### Analyzing the Bundle Size
+   `yarn install`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+3. Run the tests with the command:
 
-### Making a Progressive Web App
+   `yarn test`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Authors
 
-### Advanced Configuration
+👤 **Cristian Viorel Ceamatu**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Email: [cristian.ceamatu@gmail.com](cristian.ceamatu@gmail.com)
+- Github: [https://github.com/cristianCeamatu](https://github.com/cristianCeamatu)
+- Twitter: [https://twitter.com/CristianCeamatu](https://twitter.com/CristianCeamatu)
+- Linkedin: [https://www.linkedin.com/in/ceamatu-cristian/](https://www.linkedin.com/in/ceamatu-cristian/)
 
-### Deployment
+## 🤝 Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Our favourite contributions are those that help us improve the project, whether with a contribution, an issue, or a feature request!
 
-### `yarn build` fails to minify
+## Show your support
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+If you've read this far....give us a ⭐️!
+
+## 📝 License
+
+This project is licensed by Microverse and the Odin Project
+
+## Credits
+<div>Favicon and icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<a href="https://www.microverse.org/">Microverse</a>for the module of this project <a href="https://www.notion.so/Catalogue-of-Dog-Clothes-8bf1512b8ab34fa28848beb8ab698a32">Catalogue of Dog Clothes</a>
