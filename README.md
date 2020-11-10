@@ -24,6 +24,8 @@
 
 ![image](readme-assets/app-screenshot.png)
 
+## Video presentation [here](https://www.youtube.com/watch?v=oYA0CIVi_pc)
+
 ## Built With
 
 - React.js
