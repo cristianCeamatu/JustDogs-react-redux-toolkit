@@ -28,12 +28,10 @@ const Filter = () => {
   ));
 
   const breedGroupFilter = useSelector(state => state.dogs.filters.breedGroupFilter);
-  const breedGroupCategories = useSelector(state =>
-    state.dogs.data.map(dog => {
-      const { breed_group: breedGroup } = dog.breeds[0];
-      return breedGroup;
-    }),
-  );
+  const breedGroupCategories = useSelector(state => state.dogs.data.map(dog => {
+    const { breed_group: breedGroup } = dog.breeds[0];
+    return breedGroup;
+  }));
   const uniqBreedGroupsArray = [...new Set(breedGroupCategories)];
   const breedGroupOptions = uniqBreedGroupsArray.map(category => (
     <option key={category} value={category}>
