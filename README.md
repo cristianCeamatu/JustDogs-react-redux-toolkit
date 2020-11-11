@@ -97,4 +97,4 @@ This project is licensed by Microverse and the Odin Project
 
 ## Credits
 <div>Favicon and icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-<a href="https://www.microverse.org/">Microverse</a>for the module of this project <a href="https://www.notion.so/Catalogue-of-Dog-Clothes-8bf1512b8ab34fa28848beb8ab698a32">Catalogue of Dog Clothes</a>
+<a href="https://www.microverse.org/">Microverse</a> for the module of this project <a href="https://www.notion.so/Catalogue-of-Dog-Clothes-8bf1512b8ab34fa28848beb8ab698a32">Catalogue of Dog Clothes</a>
